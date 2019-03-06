@@ -116,10 +116,10 @@ public class CinemaAPIController {
 
     }
     @PutMapping("/{moviename}")
-    public ResponseEntity<?> manejadorPutRecursoXX(@RequestBody CinemaFunction cf, @PathVariable String name) {
+    public ResponseEntity<?> manejadorPutRecursoXX(@RequestBody CinemaFunction cf, @PathVariable String moviename) {
 		try {
-			c.update(name, cf);
-			return new ResponseEntity<>(c.getCinemaByName(name), HttpStatus.ACCEPTED);
+			c.update(moviename, cf);
+			return new ResponseEntity<>(c.getCinemaByName(moviename), HttpStatus.ACCEPTED);
 		} catch (Exception ex) {
 			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
