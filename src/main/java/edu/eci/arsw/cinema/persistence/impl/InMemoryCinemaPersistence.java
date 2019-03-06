@@ -130,4 +130,10 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
 		
 	}
 
+    @Override
+    public void update(String name, CinemaFunction cf) throws CinemaPersistenceException{
+        Cinema c = getCinema(name);
+        c.update(cf);
+    }
+
 }

@@ -41,4 +41,13 @@ public class Cinema {
     public void addFunction(CinemaFunction funcion){
         functions.add(funcion);
     }
+
+    public void update(CinemaFunction cf) {
+        for(int i = 0; i < functions.size(); i++) {
+    		CinemaFunction cfn = functions.get(i);
+    		if(cfn.getDate().equals(cf.getDate()) && cfn.getMovie().getName().equals(cf.getMovie().getName())) {
+    			functions.set(i, cf);
+    		}
+    	}
+    }
 }

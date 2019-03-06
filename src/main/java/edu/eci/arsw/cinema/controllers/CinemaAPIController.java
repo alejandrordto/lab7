@@ -23,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -102,11 +103,11 @@ public class CinemaAPIController {
 
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-     @PostMapping("/{name}")
-    public ResponseEntity<?> manejadorPostRecursoXX(@RequestBody CinemaFunction o,@PathVariable String name) {
+    @PostMapping("/{moviename}")
+    public ResponseEntity<?> manejadorPostRecursoXX(@RequestBody CinemaFunction o,@PathVariable String moviename) {
         try {
-            c.getCinemaByName(name).addFunction(o);
+            System.out.println(o);
+            c.getCinemaByName(moviename).addFunction(o);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,4 +115,14 @@ public class CinemaAPIController {
         }
 
     }
+    @PutMapping("/{moviename}")
+    public ResponseEntity<?> manejadorPutRecursoXX(@RequestBody CinemaFunction cf, @PathVariable String name) {
+		try {
+			c.update(name, cf);
+			return new ResponseEntity<>(c.getCinemaByName(name), HttpStatus.ACCEPTED);
+		} catch (Exception ex) {
+			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
+			return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
+		}
+	}
 }

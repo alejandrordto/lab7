@@ -82,5 +82,7 @@ public class CinemaServices {
         this.cps = cps;
     }
 
-
+    public void update(String name, CinemaFunction cf) throws CinemaPersistenceException {
+		cps.update(name, cf);
+	}
 }
