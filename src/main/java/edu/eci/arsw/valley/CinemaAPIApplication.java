@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.cinema;
+package edu.eci.arsw.valley;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author cristian
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"edu.eci.arsw.cinema"})
+@ComponentScan(basePackages = {"edu.eci.arsw.valley"})
 public class CinemaAPIApplication {
 
     public static void main(String[] args) {
